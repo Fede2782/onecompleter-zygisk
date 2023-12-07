@@ -3,10 +3,10 @@
 
 #pragma once
 
-namespace pixelifytag {
+namespace onecompletertag {
 
 #ifndef TAG
-#define TAG    "Pixelify"
+#define TAG    "oneCompleter"
 #endif
 
 #ifdef NDEBUG

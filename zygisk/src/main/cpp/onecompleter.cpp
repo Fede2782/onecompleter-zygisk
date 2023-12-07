@@ -13,28 +13,29 @@ using zygisk::AppSpecializeArgs;
 using zygisk::ServerSpecializeArgs;
 
 // Spoofing apps
-static std::vector<std::string> P1 = {"com.google.android.apps.photos"};
-static std::vector<std::string> P5 = {"com.google.android.gms","com.google.ar.core", "com.google.vr.apps.ornament","com.google.android.tts", "com.google.android.apps.wearables.maestro.companion", "com.nothing.smartcenter","com.netflix.mediaclient"};
-static std::vector<std::string> P6 = {"com.google"};
+static std::vector<std::string> P1 = {"com.google.android.googlequicksearchbox", "com.samsung.android.rampart"};
+static std::vector<std::string> P5 = {"com.sec.android.app.samsungapps"};
+static std::vector<std::string> P6 = {};
 static std::vector<std::string> P7 = {};
-static std::vector<std::string> P8 = {"com.google.pixel.livewallpaper", "com.google.android.apps.subscriptions.red", "com.breel.wallpaper", "com.snapchat.android", "com.google.android.gms", "com.google.process.gapps", "com.google.process.gservices","com.google.android.googlequicksearchbox","com.adobe.lrmobile"};
-static std::vector<std::string> PFold = {"com.google.android.apps.subscriptions.red"};
-static std::vector<std::string> keep = {"com.google.android.apps.recorder", "com.google.android.GoogleCamera", "com.google.android.apps.motionsense.bridge", "com.google.android.gms.chimera", "com.google.android.gms.update", "com.android.camera", "com.google.android.xx", "com.google.android.googlequicksearchbox:HotwordDetectionService", "com.google.android.apps.mesagging:rcs", "com.google.android.googlequicksearchbox:trusted:com.google.android.apps.gsa.hotword.hotworddetectionservice.GsaHotwordDetectionService"};
+static std::vector<std::string> P8 = {};
+static std::vector<std::string> PFold = {};
+static std::vector<std::string> keep = {"com.google.android.googlequicksearchbox:HotwordDetectionService", "com.google.android.googlequicksearchbox:trusted:com.google.android.apps.gsa.hotword.hotworddetectionservice.GsaHotwordDetectionService"};
 
 // Fingerprint
-const char P1_FP[256] = "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys";
-const char P5_FP[256] = "google/redfin/redfin:13/TQ2A.230305.008.C1/9619669:user/release-keys";
-const char P6_FP[256] = "google/raven/raven:13/TQ1A.230105.002/9325679:user/release-keys";
-const char P7_FP[256] = "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys";
-const char P2_FP[256] = "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys";
-const char PF_FP[256] = "google/felix/felix:13/TD3A.230203.070.A1/10075871:user/release-keys";
-const char P8_FP[256] = "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys";
+const char P1_FP[256] = "samsung/dm3qxxx/qssi:14/UP1A.231005.007/S918BXXU3BWJM:user/release-keys";
+const char P5_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char P6_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char P7_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char P2_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char PF_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char P8_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+
 
 bool DEBUG = true;
 char package_name[256];
 static int spoof_type;
 
-class pixelify : public zygisk::ModuleBase
+class onecompleter : public zygisk::ModuleBase
 {
 public:
     void onLoad(Api *api, JNIEnv *env) override
@@ -54,29 +55,26 @@ public:
         switch (spoof_type)
         {
         case 1:
-            injectBuild("Pixel XL", "marlin", P1_FP);
+            injectBuild("SM-S918B", "dm3qxxx", P1_FP);
             injectversion(34);
             break;
         case 2:
-            injectBuild("Pixel 2", "walleye", P2_FP);
-            // 8.1.0 SDK Version is 27
-            injectversion(27);
+            injectBuild("SM-X916B", "gts9uxxx", P5_FP);
             break;
         case 3:
-            injectBuild("Pixel 5", "redfin", P5_FP);
+            injectBuild("SM-X916B", "gts9uxxx", P6_FP);
             break;
         case 4:
-            injectBuild("Pixel 6 Pro", "raven", P6_FP);
+            injectBuild("SM-X916B", "gts9uxxx", P7_FP);
             break;
         case 5:
-            injectBuild("Pixel 7 Pro", "cheetah", P7_FP);
+            injectBuild("SM-X916B", "gts9uxxx", P1_FP);
             break;
         case 6:
-            injectBuild("Pixel Fold", "felix", PF_FP);
-            injecthardware("felix");
+            injectBuild("SM-X916B", "gts9uxxx", P7_FP);
             break;
         case 7:
-            injectBuild("Pixel 8 Pro", "husky", P8_FP);
+            injectBuild("SM-X916B", "gts9uxxx", P8_FP);
             break;
         default:
             break;
@@ -108,8 +106,8 @@ private:
 
         jstring product = env->NewStringUTF(product1);
         jstring model = env->NewStringUTF(model1);
-        jstring brand = env->NewStringUTF("google");
-        jstring manufacturer = env->NewStringUTF("Google");
+        jstring brand = env->NewStringUTF("samsung");
+        jstring manufacturer = env->NewStringUTF("samsung");
         jstring finger = env->NewStringUTF(finger1);
         jstring tag = env->NewStringUTF("release-keys");
         jstring type = env->NewStringUTF("user");
@@ -241,7 +239,7 @@ private:
 
         jint inc = (jint)inc_c;
 
-        jfieldID inc_id = env->GetStaticFieldID(build_class, "DEVICE_INITIAL_SDK_INT", "I");
+        jfieldID inc_id = env->GetStaticFieldID(build_class, "SDK_INT", "I");
         if (inc_id != nullptr)
         {
             env->SetStaticIntField(build_class, inc_id, inc);
@@ -255,8 +253,6 @@ private:
     int getSpoof(const char *process)
     {
         std::string package = process;
-        if (strcmp(process, "com.google.android.gms.unstable") == 0)
-            return 2;
 
         for (auto &s : keep)
         {
@@ -297,4 +293,4 @@ private:
     }
 };
 
-REGISTER_ZYGISK_MODULE(pixelify)
+REGISTER_ZYGISK_MODULE(onecompleter)

@@ -31,7 +31,7 @@ set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${LINKER_FLAGS}")
 # find_package(REQUIRED CONFIG)
 
 add_library(${MODULE_NAME} SHARED 
-            pixelify.cpp
+            onecompleter.cpp
             module.h)
 target_link_libraries(${MODULE_NAME} log)
 
