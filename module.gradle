@@ -15,10 +15,5 @@ ext {
     moduleDescription = "Just lib module"
     moduleVersion = "v1"
     moduleVersionCode = 1
-
-   //Riru Properties
-    moduleMinRiruApiVersion = 25
-    moduleMinRiruVersionName = "v25.4.2"
-    moduleRiruApiVersion = 25
     magiskModuleId = "onecompleter"
 }

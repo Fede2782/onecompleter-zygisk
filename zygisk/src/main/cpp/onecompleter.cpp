@@ -13,13 +13,13 @@ using zygisk::AppSpecializeArgs;
 using zygisk::ServerSpecializeArgs;
 
 // Spoofing apps
-static std::vector<std::string> P1 = {"com.google.android.googlequicksearchbox", "com.samsung.android.rampart"};
+static std::vector<std::string> P1 = {"com.samsung.android.rampart"};
 static std::vector<std::string> P5 = {"com.sec.android.app.samsungapps"};
 static std::vector<std::string> P6 = {};
 static std::vector<std::string> P7 = {};
 static std::vector<std::string> P8 = {};
 static std::vector<std::string> PFold = {};
-static std::vector<std::string> keep = {"com.google.android.googlequicksearchbox:HotwordDetectionService", "com.google.android.googlequicksearchbox:trusted:com.google.android.apps.gsa.hotword.hotworddetectionservice.GsaHotwordDetectionService"};
+static std::vector<std::string> keep = {};
 
 // Fingerprint
 const char P1_FP[256] = "samsung/dm3qxxx/qssi:14/UP1A.231005.007/S918BXXU3BWJM:user/release-keys";
