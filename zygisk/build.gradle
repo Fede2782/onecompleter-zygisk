@@ -69,8 +69,8 @@ afterEvaluate {
             types.each { instance, resourceDir ->
                 from("$buildDir/intermediates/stripped_native_libs/$variantLowered/out/lib/$resourceDir") {
                     into 'lib/zygisk'
-                    exclude "**/libpixelify-tensor.so"
-                    rename 'libpixelify.so', "${resourceDir}.so"
+                    exclude "**/libonecompleter-tensor.so"
+                    rename 'libonecompleter.so', "${resourceDir}.so"
                 }
             }
 
@@ -101,8 +101,8 @@ afterEvaluate {
             types.each { instance, resourceDir ->
                 from("$buildDir/intermediates/stripped_native_libs/$variantLowered/out/lib/$resourceDir") {
                     into 'lib/zygisk'
-                    exclude "**/libpixelify-tensor.so"
-                    rename 'libpixelify.so', "${resourceDir}.so"
+                    exclude "**/libonecompleter-tensor.so"
+                    rename 'libonecompleter.so', "${resourceDir}.so"
                 }
             }
         }
