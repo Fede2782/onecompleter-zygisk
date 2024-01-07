@@ -15,7 +15,7 @@ using zygisk::ServerSpecializeArgs;
 // Spoofing apps
 static std::vector<std::string> P1 = {"com.samsung.android.rampart"};
 static std::vector<std::string> P5 = {"com.sec.android.app.samsungapps"};
-static std::vector<std::string> P6 = {};
+static std::vector<std::string> P6 = {"com.samsung.android.smartsuggestions"};
 static std::vector<std::string> P7 = {};
 static std::vector<std::string> P8 = {};
 static std::vector<std::string> PFold = {};
