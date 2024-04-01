@@ -16,7 +16,7 @@ using zygisk::ServerSpecializeArgs;
 static std::vector<std::string> P1 = {"com.samsung.android.rampart"};
 static std::vector<std::string> P5 = {"com.sec.android.app.samsungapps"};
 static std::vector<std::string> P6 = {"com.samsung.android.smartsuggestions"};
-static std::vector<std::string> P7 = {};
+static std::vector<std::string> P7 = {"com.google.android.apps.messaging"};
 static std::vector<std::string> P8 = {};
 static std::vector<std::string> PFold = {};
 static std::vector<std::string> keep = {};
@@ -25,7 +25,7 @@ static std::vector<std::string> keep = {};
 const char P1_FP[256] = "samsung/dm3qxxx/qssi:14/UP1A.231005.007/S918BXXU3BWJM:user/release-keys";
 const char P5_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
 const char P6_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
-const char P7_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
+const char P7_FP[256] = "samsung/dm3qxxx/qssi:14/UP1A.231005.007/S918BXXU3CXCF:user/release-keys";
 const char P2_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
 const char PF_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
 const char P8_FP[256] = "samsung/gts9uxxx/qssi:13/TP1A.220624.014/X916BXXU1AWG1:user/release-keys";
@@ -65,7 +65,7 @@ public:
             injectBuild("SM-X916B", "gts9uxxx", P6_FP);
             break;
         case 4:
-            injectBuild("SM-X916B", "gts9uxxx", P7_FP);
+            injectBuild("SM-S918B", "dm3qxxx", P7_FP);
             break;
         case 5:
             injectBuild("SM-X916B", "gts9uxxx", P1_FP);
