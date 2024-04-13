@@ -18,5 +18,4 @@ dependencyResolutionManagement {
 DirectoryScanner.removeDefaultExclude('**/.gitattributes')
 
 include ':zygisk'
-include ':riru'
 include ':app'

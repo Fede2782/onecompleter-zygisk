@@ -31,14 +31,9 @@ set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} ${LINKER_FLAGS}")
 # find_package(REQUIRED CONFIG)
 
 add_library(${MODULE_NAME} SHARED 
-            pixelify.cpp
+            onecompleter.cpp
             module.h)
 target_link_libraries(${MODULE_NAME} log)
-
-add_library(${MODULE_NAME}-tensor SHARED
-            tensor.cpp
-            module.h)
-target_link_libraries(${MODULE_NAME}-tensor log)
 
 if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
     add_custom_command(TARGET ${MODULE_NAME} POST_BUILD
